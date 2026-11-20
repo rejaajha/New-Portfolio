@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reza</title>
+    <link href="./src/output.css" rel="stylesheet" />
+  </head>
+  <body class="font-jersey m-0 p-0 box-border">
+    <main>
+      <!-- HERO -->
+      <section class="sticky top-0 z-10 h-screen w-full">
+        <!-- Background -->
+        <img
+          src="./src/Asset/HERO.png"
+          alt="Hero Background"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <!-- Content -->
+        <div class="relative z-10 w-full h-full p-10 flex flex-col">
+          <div class="flex justify-between font-press2P text-white">
+            <h3>Est 2011</h3>
+            <h3>Indonesia</h3>
+          </div>
+
+          <div class="flex-1 flex flex-col justify-center items-center">
+            <h1 class="font-jersey text-5xl text-white mb-6">Welcome to my</h1>
+
+            <!-- Portfolio Wrapper -->
+            <div class="relative w-[90%] max-w-[850px] mx-auto">
+              <!-- Canvas -->
+              <img
+                src="./src/asset/Canvas.png"
+                alt=""
+                class="absolute z-10 w-[23%] top-[-10%] right-[0%]"
+              />
+
+              <!-- Cursor -->
+              <img
+                src="./src/asset/cursor.png"
+                alt=""
+                class="absolute z-10 w-[15%] top-[30%] right-[-10%]"
+              />
+
+              <!-- Hashtag -->
+              <img
+                src="./src/asset/hashtag.png"
+                alt=""
+                class="absolute z-10 w-[15%] top-[-10%] left-[-6%]"
+              />
+
+              <!-- Heading -->
+              <h1
+                class="w-full font-press2P text-white text-[170px] leading-none text-center"
+              >
+                PORT0<br />FOLI0
+              </h1>
+            </div>
+
+            <!-- Decorative Line -->
+            <img
+              src="./src/Asset/line.png"
+              class="w-[850px] max-w-[90%]"
+              alt=""
+            />
+          </div>
+
+          <div class="flex justify-between font-press2P text-white">
+            <h3>Scroll</h3>
+            <h3>Puwiss</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section
+        class="page-section relative sticky -top-10 pt-5 p-10 z-20 bg-white shadow-[0_-15px_40px_rgba(0,0,0,0.15)] rounded-t-[40px]"
+      >
+        <img
+          src="./src/asset/Star 4.png"
+          alt=""
+          class="absolute w-70 top-0 -left-18"
+        />
+
+        <div>
+          <img
+            src="./src/asset/Select Txt.png"
+            alt=""
+            class="absolute w-40 top-16 left-88"
+          />
+
+          <!-- teks (kiri) + kartu (kanan) -->
+          <div
+            class="relative flex flex-col lg:flex-row lg:justify-between gap-16 pt-10"
+          >
+            <!-- TEKS: isi sama seperti punyamu -->
+            <div class="lg:max-w-2xl flex flex-col pt-5">
+              <h1 class="text-4xl font-press2P mb-2 text-blue">
+                HELLO IM REZA
+              </h1>
+              <p class="text-2xl text-blue">
+                A passionate UI/UX Designer and aspiring Front-End Developer who
+                <br />
+                loves turning creative ideas into meaningful digital
+                experiences. <br />
+                Driven by curiosity, I'm always learning and exploring new ways
+                to <br />
+                bridge design and code.
+              </p>
+            </div>
+
+            <!-- KARTU INTERAKTIF -->
+            <div class="flex flex-col items-center lg:mr-10">
+              <div
+                id="cardStack"
+                class="relative w-[min(350px,75vw)] h-[250px] mb-10 mr-16"
+              >
+                <!-- Kartu 1: lime (sesuai gambar) -->
+                <div
+                  class="stack-card bg-[#c8f400] p-5 flex flex-col justify-between"
+                  data-pos="0"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Education card"
+                >
+                  <div>
+                    <p class="font-press2P text-base text-black">Education</p>
+                    <h2
+                      class="font-press2P text-2xl leading-snug mt-4 text-[#ff5fb2]"
+                    >
+                      Abu Dzar<br />Boarding School
+                    </h2>
+                  </div>
+                  <div
+                    class="flex justify-between font-press2P text-[10px] text-black"
+                  >
+                    <span>Present</span><span>Discover ➔</span>
+                  </div>
+                </div>
+
+                <!-- Kartu 2: biru (dummy) -->
+                <div
+                  class="stack-card bg-[#0b57ff] p-5 flex flex-col justify-between"
+                  data-pos="1"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Experience card"
+                >
+                  <div>
+                    <p class="font-press2P text-base text-white">Experience</p>
+                    <h2
+                      class="font-press2P text-2xl leading-snug mt-4 text-[#c8f400]"
+                    >
+                      Freelance<br />UI/UX Designer
+                    </h2>
+                  </div>
+                  <div
+                    class="flex justify-between font-press2P text-[10px] text-white"
+                  >
+                    <span>2023 - Now</span><span>Discover ➔</span>
+                  </div>
+                </div>
+
+                <!-- Kartu 3: pink (dummy) -->
+                <div
+                  class="stack-card bg-[#ff5fb2] p-5 flex flex-col justify-between"
+                  data-pos="2"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Skills card"
+                >
+                  <div>
+                    <p class="font-press2P text-base text-black">Skills</p>
+                    <h2
+                      class="font-press2P text-2xl leading-snug mt-4 text-[#0b57ff]"
+                    >
+                      Figma &amp;<br />Front-End
+                    </h2>
+                  </div>
+                  <div
+                    class="flex justify-between font-press2P text-[10px] text-black"
+                  >
+                    <span>Always learning</span><span>Discover ➔</span>
+                  </div>
+                </div>
+              </div>
+              <p class="font-press2P text-[10px] text-blue/60">
+                Click the card ➔
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="certificate-wrapper flex justify-between items-center mb-10"
+        >
+          <!-- FOLDER -->
+          <div class="folder-container">
+            <img
+              src="./src/asset/FOLDER SERTIFIKAT.png"
+              alt="Certificate Folder"
+              class="folder-image"
+            />
+
+            <!-- CARD DECK -->
+            <div class="certificate-cards">
+              <!-- JAVASCRIPT -->
+              <div class="certificate-card card-js">
+                <div class="certificate-card-inner">
+                  <div class="card-front">
+                    <h3>JavaScript</h3>
+                    <span>01 / CERTIFICATE</span>
+                  </div>
+                  <div class="card-back">
+                    <img
+                      src="./src/asset/sertifikat-js.png"
+                      alt="JavaScript Certificate"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- HTML -->
+              <div class="certificate-card card-html">
+                <div class="certificate-card-inner">
+                  <div class="card-front">
+                    <h3>HTML</h3>
+                    <span>02 / CERTIFICATE</span>
+                  </div>
+                  <div class="card-back">
+                    <img
+                      src="./src/asset/sertifikat-html.png"
+                      alt="HTML Certificate"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- CSS -->
+              <div class="certificate-card card-css">
+                <div class="certificate-card-inner">
+                  <div class="card-front">
+                    <h3>CSS</h3>
+                    <span>03 / CERTIFICATE</span>
+                  </div>
+                  <div class="card-back">
+                    <img
+                      src="./src/asset/sertifikat-css.png"
+                      alt="CSS Certificate"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GRAPHIC DESIGNER -->
+          <div class="flex self-end">
+            <img
+              src="./src/asset/Graphic Designer.png"
+              alt="Graphic Designer"
+              class="w-150"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS & TOOLS-->
+      <section class="page-section sticky flex justify-between top-0 p-10 z-30 bg-blue">
+        
+        <div class="min-h-[100vh] border-r-[4px] border-solid border-r-white">
+          <h1 class="text-4xl font-press2P mb-2 text-white">TOOLS</h1>
+        </div>
+
+        <div class="min-h-[100vh]">
+          <h1 class="text-4xl font-press2P mb-2 text-white">TOOLS</h1>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="page-section sticky top-0 z-40 bg-black">
+        <div class="min-h-screen p-10">
+          <h1 class="text-white">CONTACT</h1>
+        </div>
+      </section>
+    </main>
+
+    <script src="./src/script.js"></script>
+  </body>
+</html>

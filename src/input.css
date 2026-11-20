@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-jersey: "Jersey 10", sans-serif;
+  --font-press2P: "Press Start 2P", cursive;
+  --color-lime: #D1FF00;
+  --color-blue: #005EFF;
+  --color-pink: #FF5CAD;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+.page-section {
+  min-height: 600px;
+  height: auto;
+}
+
+/* Card stack */
+.stack-card {
+  position: absolute;
+  inset: 0;
+  transition: transform .45s cubic-bezier(.3, 1.35, .5, 1);
+  cursor: pointer;
+  user-select: none;
+}
+.stack-card[data-pos="0"] { transform: translate(0, 0) rotate(0deg);         z-index: 30; }
+.stack-card[data-pos="1"] { transform: translate(26px, 16px) rotate(4deg);   z-index: 20; }
+.stack-card[data-pos="2"] { transform: translate(44px, 30px) rotate(7.5deg); z-index: 10; }
+.stack-card[data-pos="0"]:hover { transform: translate(-4px, -6px) rotate(-1deg); }
+
+/* kartu depan terbang ke samping sebelum pindah ke belakang */
+.stack-card.is-leaving { transform: translate(105%, -8%) rotate(12deg) !important; z-index: 30 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-card { transition: none; }
+}
+
+
+
+
+/* FOLDER */
+.folder-container {
+  position: relative;
+  width: 500px;
+  flex-shrink: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.folder-image {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+/* HOVER BRIDGE */
+.folder-container::before {
+  content: "";
+  position: absolute;
+  top: -220px;
+  left: -60px;
+  width: calc(100% + 120px);
+  height: 250px;
+  z-index: 1;
+}
+
+/* CARD DECK */
+.certificate-cards {
+  position: absolute;
+  top: -190px;
+  left: 50%;
+  width: 390px;
+  height: 210px;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.4s ease;
+  z-index: 3;
+}
+
+/* SHOW CARDS */
+.folder-container:hover .certificate-cards {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* INDIVIDUAL CARD */
+.certificate-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 150px;
+  height: 210px;
+
+  perspective: 1200px;
+  cursor: pointer;
+
+  transition: transform 0.65s cubic-bezier(.2,.8,.2,1);
+}
+
+/* INITIAL POSITIONS */
+.card-js {
+  transform: translateX(calc(-50% - 105px)) rotate(-12deg);
+  z-index: 1;
+}
+
+.card-html {
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.card-css {
+  transform: translateX(calc(-50% + 105px)) rotate(12deg);
+  z-index: 1;
+}
+
+/* ACTIVE CARD - CENTER */
+.card-js.is-active,
+.card-html.is-active,
+.card-css.is-active {
+  transform: translateX(-50%) scale(1.4) rotate(0deg);
+  z-index: 10;
+}
+
+/* CARD FLIP */
+.certificate-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.60s cubic-bezier(0.65, 0, 0.35, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.certificate-card.is-active .certificate-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 13px;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+/* FRONT */
+.card-front {
+  background: #171717;
+  color: white;
+
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid #444;
+}
+
+.card-front h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.card-front span {
+  font-size: 9px;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/* BACK */
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+  border: 1px solid #ddd;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
