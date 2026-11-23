@@ -6,7 +6,7 @@
     <title>Reza</title>
     <link href="./src/output.css" rel="stylesheet" />
   </head>
-  <body class="font-jersey m-0 p-0 box-border">
+  <body class="font-jersey m-0 p-0 box-border relative">
     <main>
       <!-- HERO -->
       <section class="sticky top-0 z-10 h-screen w-full">
@@ -75,7 +75,7 @@
 
       <!-- ABOUT -->
       <section
-        class="page-section relative sticky -top-10 pt-5 p-10 z-20 bg-white shadow-[0_-15px_40px_rgba(0,0,0,0.15)] rounded-t-[40px]"
+        class="page-section relative sticky h-[150vh] -top-20 py-5 p-10 z-20 bg-white shadow-[0_-15px_40px_rgba(0,0,0,0.15)] rounded-t-[40px] overflow-hidden"
       >
         <img
           src="./src/asset/Star 4.png"
@@ -83,22 +83,49 @@
           class="absolute w-70 top-0 -left-18"
         />
 
-        <div>
-          <img
-            src="./src/asset/Select Txt.png"
-            alt=""
-            class="absolute w-40 top-16 left-88"
-          />
+        <div
+          id="linkedin-card-drag"
+          class="absolute top-60 left-160 z-50 select-none touch-none cursor-grab active:cursor-grabbing"
+        >
+          <!-- Lapisan 2: Animasi naik-turun -->
+          <div class="animate-melayang">
+            <!-- Lapisan 3: Link & efek rotasi saat hover -->
+            <a
+              id="linkedin-card-link"
+              href="https://www.linkedin.com/in/reza-khoirul-azzam-b21042445/"
+              target="_blank"
+              rel="noopener noreferrer"
+              draggable="false"
+              class="block rotate-3 transition duration-300 ease-in-out hover:rotate-12"
+            >
+              <img
+                src="./src/asset/Linkedin card.png"
+                alt="LinkedIn Reza Khoirul Azzam"
+                draggable="false"
+                class="w-50 pointer-events-none"
+              />
+            </a>
+          </div>
+        </div>
 
+        <div>
           <!-- teks (kiri) + kartu (kanan) -->
           <div
-            class="relative flex flex-col lg:flex-row lg:justify-between gap-16 pt-10"
+            class="relative flex flex-col lg:flex-row lg:justify-around gap-16 pt-10"
           >
             <!-- TEKS: isi sama seperti punyamu -->
             <div class="lg:max-w-2xl flex flex-col pt-5">
-              <h1 class="text-4xl font-press2P mb-2 text-blue">
-                HELLO IM REZA
-              </h1>
+              <div class="relative w-fit">
+                <img
+                  src="./src/asset/Select Txt.png"
+                  alt=""
+                  class="absolute w-40 -top-4 -right-1"
+                />
+                <h1 class="text-4xl font-press2P mb-2 text-blue">
+                  HELLO IM REZA
+                </h1>
+              </div>
+
               <p class="text-2xl text-blue">
                 A passionate UI/UX Designer and aspiring Front-End Developer who
                 <br />
@@ -195,6 +222,11 @@
         <div
           class="certificate-wrapper flex justify-between items-center mb-10"
         >
+          <img
+            src="./src/asset/saturn.png"
+            alt=""
+            class="absolute w-250 -bottom-10 -right-70"
+          />
           <!-- FOLDER -->
           <div class="folder-container">
             <img
@@ -267,14 +299,44 @@
       </section>
 
       <!-- PROJECTS & TOOLS-->
-      <section class="page-section sticky flex justify-between top-0 p-10 z-30 bg-blue">
-        
-        <div class="min-h-[100vh] border-r-[4px] border-solid border-r-white">
-          <h1 class="text-4xl font-press2P mb-2 text-white">TOOLS</h1>
+      <section
+        class="page-section sticky mt-20 top-0 z-30 flex justify-between gap-20 p-10 bg-blue"
+      >
+        <!-- KIRI: TOOLS -->
+        <div class="min-h-screen pr-10 border-r-4 border-white">
+          <div class="flex flex-col mb-10">
+            <h1 class="text-4xl font-press2P mb-2 text-white">TOOLS</h1>
+
+            <p class="text-2xl text-white">
+              The tools and technologies that support my creative process, from
+              <br />
+              designing interfaces to building interactive web experiences.
+            </p>
+          </div>
+
+          <!-- GAMBAR TOOLS -->
+          <div class="flex flex-col justify-center items-center">
+            <div class="flex gap-5 mb-5">
+              <img src="./src/asset/T.HTML.png" alt="" class="w-40 animate-berenang berenang-1" />
+              <img src="./src/asset/T.CSS.png" alt="" class="w-40 animate-berenang berenang-2" />
+            </div>
+
+            <div class="flex gap-5 mb-5">
+              <img src="./src/asset/T.JS.png" alt="" class="w-40 animate-berenang berenang-3" />
+              <img src="./src/asset/T.TAILWIND.png" alt="" class="w-40 animate-berenang berenang-4" />
+            </div>
+
+            <div>
+              <img src="./src/asset/T.FIGMA.png" alt="" class="w-40 animate-berenang berenang-5" />
+            </div>
+          </div>
         </div>
 
-        <div class="min-h-[100vh]">
-          <h1 class="text-4xl font-press2P mb-2 text-white">TOOLS</h1>
+        <!-- KANAN: SELECTED PROJECT -->
+        <div>
+          <h1 class="text-4xl font-press2P mb-2 text-white">
+            SELECTED PROJECT
+          </h1>
         </div>
       </section>
 

@@ -61,3 +61,56 @@ cardDeck.addEventListener("pointerleave", () => {
     card.classList.remove("is-active");
   });
 });
+
+const cardDrag = document.getElementById("linkedin-card-drag");
+  const cardLink = document.getElementById("linkedin-card-link");
+
+  let isDragging = false;
+  let hasMoved = false;
+  let startX = 0;
+  let startY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  cardDrag.addEventListener("pointerdown", (e) => {
+    // Hanya merespons klik kiri mouse atau sentuhan jari
+    if (e.button !== 0 && e.pointerType === "mouse") return;
+
+    isDragging = true;
+    hasMoved = false;
+    startX = e.clientX - currentX;
+    startY = e.clientY - currentY;
+    cardDrag.setPointerCapture(e.pointerId);
+  });
+
+  cardDrag.addEventListener("pointermove", (e) => {
+    if (!isDragging) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    // Anggap sebagai drag jika digeser lebih dari 5px
+    if (Math.abs(dx - currentX) > 5 || Math.abs(dy - currentY) > 5) {
+      hasMoved = true;
+    }
+
+    currentX = dx;
+    currentY = dy;
+    cardDrag.style.transform = `translate(${currentX}px, ${currentY}px)`;
+  });
+
+  cardDrag.addEventListener("pointerup", (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    cardDrag.releasePointerCapture(e.pointerId);
+
+    // Jika tidak digeser, anggap sebagai klik dan buka di tab baru
+    if (!hasMoved) {
+      window.open(cardLink.href, "_blank", "noopener,noreferrer");
+    }
+  });
+
+  // Mencegah browser membuka tab ganda jika event click bawaan tetap terpicu
+  cardLink.addEventListener("click", (e) => {
+    e.preventDefault();
+  });
