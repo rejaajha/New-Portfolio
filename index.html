@@ -99,7 +99,7 @@
               class="block rotate-3 transition duration-300 ease-in-out hover:rotate-12"
             >
               <img
-                src="./src/asset/Profile Linkedin2.png"
+                src="./src/asset/Profile Linkedin.png"
                 alt="LinkedIn Reza Khoirul Azzam"
                 draggable="false"
                 class="w-70 pointer-events-none"
@@ -353,7 +353,7 @@
         </div>
 
         <!-- KANAN: SELECTED PROJECT -->
-        <div class="flex-1 flex flex-col justify-between pr-20">
+        <div class="flex-1 flex flex-col justify-between pr-20 mb-[00px]">
           <div>
             <h1 class="text-4xl font-press2P mb-4 text-white">
               SELECTED PROJECT
@@ -471,12 +471,20 @@
               </button>
             </div>
 
-            <!-- AREA TUMPUKAN GAMBAR BERANTAKAN (Menggunakan position: absolute agar bertumpuk acak) -->
-            <div class="relative flex-1 w-full h-full overflow-hidden">
-              <!-- GAMBAR 1: GREENERS INDONESIA (Agak miring ke kiri atas) -->
+            <!-- AREA TUMPUKAN GAMBAR BERANTAKAN -->
+            <div
+              id="drawerCardsContainer"
+              class="relative flex-1 w-full h-full overflow-hidden"
+            >
+              <!-- GAMBAR 1: GREENERS INDONESIA (Ada link web) -->
               <img
                 src="./src/asset/Greeners.png"
                 alt="Greeners Indonesia PS5 Cover"
+                data-title="GREENERS INDONESIA"
+                data-desc="Eco-Adventure Game Concept & Landing Page"
+                data-url="https://example.com"
+                data-rotate="-11deg"
+                data-z="10"
                 style="
                   width: 175px;
                   max-width: 175px;
@@ -484,22 +492,20 @@
                   top: 8%;
                   left: 10%;
                   transform: rotate(-11deg);
+                  z-index: 10;
                 "
-                onmouseover="
-                  this.style.transform = 'rotate(0deg) scale(1.12)';
-                  this.style.zIndex = '50';
-                "
-                onmouseout="
-                  this.style.transform = 'rotate(-11deg) scale(1)';
-                  this.style.zIndex = '10';
-                "
-                class="absolute z-10 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+                class="drawer-project-item absolute rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
               />
 
-              <!-- GAMBAR 2: (Menumpuk miring ke kanan di sebelah/atasnya) -->
+              <!-- GAMBAR 2: COVO WHITE (Contoh tanpa link / kosong -> muncul WEB UNAVAILABLE) -->
               <img
-                src="./src/asset/Greeners.png"
+                src="./src/asset/COVOwhite.png"
                 alt="Project 2"
+                data-title="COVO WHITE"
+                data-desc="Minimalist Streetwear E-Commerce UI"
+                data-url=""
+                data-rotate="9deg"
+                data-z="20"
                 style="
                   width: 175px;
                   max-width: 175px;
@@ -507,63 +513,73 @@
                   top: 14%;
                   left: 42%;
                   transform: rotate(9deg);
+                  z-index: 20;
                 "
-                onmouseover="
-                  this.style.transform = 'rotate(0deg) scale(1.12)';
-                  this.style.zIndex = '50';
-                "
-                onmouseout="
-                  this.style.transform = 'rotate(9deg) scale(1)';
-                  this.style.zIndex = '20';
-                "
-                class="absolute z-20 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+                class="drawer-project-item absolute rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
               />
 
-              <!-- GAMBAR 3: (Tergeletak miring ke kiri di bagian bawah) -->
+              <!-- GAMBAR 3: (Contoh tanpa link) -->
               <img
-                src="./src/asset/Greeners.png"
+                src="./src/asset/Portfolio lama.png"
                 alt="Project 3"
+                data-title="Other Portfolio"
+                data-desc="Interactive Web Experience"
+                data-url=""
+                data-rotate="-5deg"
+                data-z="15"
                 style="
                   width: 175px;
                   max-width: 175px;
                   height: auto;
-                  bottom: 8%;
+                  bottom: 14%;
                   left: 22%;
                   transform: rotate(-5deg);
+                  z-index: 15;
                 "
-                onmouseover="
-                  this.style.transform = 'rotate(0deg) scale(1.12)';
-                  this.style.zIndex = '50';
-                "
-                onmouseout="
-                  this.style.transform = 'rotate(-5deg) scale(1)';
-                  this.style.zIndex = '15';
-                "
-                class="absolute z-15 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+                class="drawer-project-item absolute rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
               />
 
-              <!-- GAMBAR 4: (Miring tajam di pojok kanan bawah) -->
+              <!-- GAMBAR 4: (Contoh dengan link) -->
               <img
                 src="./src/asset/Greeners.png"
                 alt="Project 4"
+                data-title="PROJECT 04"
+                data-desc="Y2K Portfolio Archive"
+                data-url="https://github.com"
+                data-rotate="14deg"
+                data-z="25"
                 style="
                   width: 175px;
                   max-width: 175px;
                   height: auto;
-                  bottom: 10%;
+                  bottom: 16%;
                   right: 10%;
                   transform: rotate(14deg);
+                  z-index: 25;
                 "
-                onmouseover="
-                  this.style.transform = 'rotate(0deg) scale(1.12)';
-                  this.style.zIndex = '50';
-                "
-                onmouseout="
-                  this.style.transform = 'rotate(14deg) scale(1)';
-                  this.style.zIndex = '25';
-                "
-                class="absolute z-25 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+                class="drawer-project-item absolute rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
               />
+
+              <!-- NOTIFIKASI "WEB UNAVAILABLE" (Muncul di tengah saat gambar tanpa link diklik) -->
+              <div
+                id="webUnavailableToast"
+                style="
+                  background-color: rgba(15, 23, 42, 0.95);
+                  border: 2px solid #ef4444;
+                  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85);
+                  opacity: 0;
+                  pointer-events: none;
+                  transform: translate(-50%, -50%) scale(0.9);
+                "
+                class="absolute top-1/2 left-1/2 z-[60] px-5 py-3 rounded-lg text-center transition-all duration-200"
+              >
+                <span class="font-press2P text-xs text-red-500 block mb-1">
+                  [!] WEB UNAVAILABLE
+                </span>
+                <span class="text-white/70 text-xs">
+                  This project link is not published yet.
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -586,19 +602,6 @@
             class="flex flex-col md:flex-row md:items-end justify-between gap-4 z-10 border-b-2 border-white/20 pb-5"
           >
             <div>
-              <div class="flex items-center gap-2 mb-2">
-                <span
-                  style="background-color: #dc2626"
-                  class="font-press2P text-[9px] text-white px-2 py-1 tracking-widest"
-                >
-                  STAGE 04
-                </span>
-                <span
-                  class="font-press2P text-[10px] text-white/60 tracking-widest"
-                >
-                  // MULTIPLAYER_LOBBY
-                </span>
-              </div>
               <h1
                 class="text-4xl md:text-5xl font-press2P text-white tracking-tight"
               >
@@ -758,7 +761,7 @@
                 <!-- LAPISAN 2: Gwjuga.png -->
                 <img
                   id="spideyMaskLayer"
-                  src="./src/asset/Gwjuga.png"
+                  src="./src/asset/Real me.png"
                   alt="Spider-Man Mask"
                   style="
                     position: absolute;
@@ -819,7 +822,7 @@
 
               <!-- GitHub -->
               <a
-                href="https://github.com/usernamekamu"
+                href="https://github.com/rejaajha"
                 target="_blank"
                 rel="noopener noreferrer"
                 style="
@@ -837,7 +840,7 @@
                       GITHUB
                     </span>
                     <span class="text-white/60 text-xs"
-                      >github.com/usernamekamu</span
+                      >github.com/rejaajha</span
                     >
                   </div>
                 </div>
@@ -850,7 +853,7 @@
 
               <!-- LinkedIn -->
               <a
-                href="https://linkedin.com/in/usernamekamu"
+                href="https://www.linkedin.com/in/reza-khoirul-azzam-b21042445/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style="
@@ -867,7 +870,9 @@
                     >
                       LINKEDIN
                     </span>
-                    <span class="text-white/60 text-xs">in/usernamekamu</span>
+                    <span class="text-white/60 text-xs"
+                      >in/Reza Khoirul Azzam</span
+                    >
                   </div>
                 </div>
                 <span
@@ -881,7 +886,7 @@
 
           <!-- FOOTER BAWAH -->
           <div
-            class="flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-white/15 pt-4 mt-6 z-10"
+            class="flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-white/15 pt-4 z-10"
           >
             <span class="font-press2P text-[9px] text-white/40">
               © 2026 REZA // ALL RIGHTS RESERVED

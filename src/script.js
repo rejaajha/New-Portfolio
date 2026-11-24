@@ -207,6 +207,213 @@ const cardDrag = document.getElementById("linkedin-card-drag");
   })();
 
 
+  (() => {
+    const projectItems = document.querySelectorAll(".drawer-project-item");
+    const infoBox = document.getElementById("drawerProjectInfo");
+    const infoTitle = document.getElementById("drawerInfoTitle");
+    const infoDesc = document.getElementById("drawerInfoDesc");
+    const infoAction = document.getElementById("drawerInfoAction");
+    const unavailableToast = document.getElementById("webUnavailableToast");
+
+    let toastTimeout;
+
+    // Fungsi mengatur posisi tooltip mengikuti kursor (dengan jarak aman 16px)
+    const moveTooltip = (e) => {
+      if (!infoBox) return;
+      const offsetX = 16;
+      const offsetY = 16;
+
+      // Cegah tooltip terpotong di tepi kanan layar
+      const boxWidth = infoBox.offsetWidth || 240;
+      const posX =
+        e.clientX + offsetX + boxWidth > window.innerWidth
+          ? e.clientX - boxWidth - offsetX
+          : e.clientX + offsetX;
+
+      const posY = e.clientY + offsetY;
+
+      infoBox.style.left = `${posX}px`;
+      infoBox.style.top = `${posY}px`;
+    };
+
+    projectItems.forEach((item) => {
+      const defaultRotate = item.getAttribute("data-rotate") || "0deg";
+      const defaultZ = item.getAttribute("data-z") || "10";
+
+      // Saat kursor masuk (Hover)
+      item.addEventListener("mouseenter", (e) => {
+        item.style.transform = "rotate(0deg) scale(1.12)";
+        item.style.zIndex = "50";
+
+        const title = item.getAttribute("data-title") || "UNTITLED PROJECT";
+        const desc = item.getAttribute("data-desc") || "";
+        const url = item.getAttribute("data-url");
+
+        if (infoBox && infoTitle && infoDesc && infoAction) {
+          infoTitle.textContent = title;
+          infoDesc.textContent = desc;
+          infoAction.textContent = url && url.trim() !== "" ? "[VISIT]" : "[OFFLINE]";
+          infoAction.style.color = url && url.trim() !== "" ? "#4ade80" : "#f87171";
+          infoBox.style.borderColor = url && url.trim() !== "" ? "#22d3ee" : "#ef4444";
+
+          infoBox.style.opacity = "1";
+          moveTooltip(e);
+        }
+      });
+
+      // Saat kursor bergerak di atas gambar
+      item.addEventListener("mousemove", moveTooltip);
+
+      // Saat kursor keluar
+      item.addEventListener("mouseleave", () => {
+        item.style.transform = `rotate(${defaultRotate}) scale(1)`;
+        item.style.zIndex = defaultZ;
+
+        if (infoBox) {
+          infoBox.style.opacity = "0";
+        }
+      });
+
+      // Saat gambar diklik
+      item.addEventListener("click", () => {
+        const url = item.getAttribute("data-url");
+
+        if (url && url.trim() !== "") {
+          window.open(url, "_blank", "noopener,noreferrer");
+        } else if (unavailableToast) {
+          clearTimeout(toastTimeout);
+          unavailableToast.style.opacity = "1";
+          unavailableToast.style.transform = "translate(-50%, -50%) scale(1)";
+
+          toastTimeout = setTimeout(() => {
+            unavailableToast.style.opacity = "0";
+            unavailableToast.style.transform = "translate(-50%, -50%) scale(0.9)";
+          }, 2000);
+        }
+      });
+    });
+  })();
+
+  (() => {
+    const projectItems = document.querySelectorAll(".drawer-project-item");
+    const unavailableToast = document.getElementById("webUnavailableToast");
+
+    if (!projectItems.length) return;
+
+    // 1. Buat elemen tooltip langsung di dalam <body> agar bebas dari overflow/sticky section
+    let infoBox = document.getElementById("drawerProjectInfo");
+    if (!infoBox) {
+      infoBox = document.createElement("div");
+      infoBox.id = "drawerProjectInfo";
+      document.body.appendChild(infoBox);
+    }
+
+    Object.assign(infoBox.style, {
+      position: "fixed",
+      top: "0px",
+      left: "0px",
+      backgroundColor: "rgba(11, 25, 44, 0.96)",
+      border: "2px solid #22d3ee",
+      boxShadow: "4px 4px 0px rgba(0, 0, 0, 0.85)",
+      borderRadius: "6px",
+      padding: "10px 14px",
+      opacity: "0",
+      visibility: "hidden",
+      pointerEvents: "none",
+      zIndex: "999999",
+      maxWidth: "260px",
+      transition: "opacity 0.15s ease",
+    });
+
+    infoBox.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px;">
+        <span id="drawerInfoTitle" class="font-press2P" style="font-size: 10px; color: #22d3ee;">PROJECT TITLE</span>
+        <span id="drawerInfoAction" class="font-press2P" style="font-size: 8px; color: #4ade80;">[VISIT]</span>
+      </div>
+      <p id="drawerInfoDesc" style="margin: 0; color: rgba(255,255,255,0.85); font-size: 12px; line-height: 1.4;">
+        Project description
+      </p>
+    `;
+
+    const infoTitle = document.getElementById("drawerInfoTitle");
+    const infoDesc = document.getElementById("drawerInfoDesc");
+    const infoAction = document.getElementById("drawerInfoAction");
+
+    let toastTimeout;
+
+    const moveTooltip = (e) => {
+      const offsetX = 16;
+      const offsetY = 16;
+      const boxWidth = infoBox.offsetWidth || 240;
+      const boxHeight = infoBox.offsetHeight || 60;
+
+      const posX =
+        e.clientX + offsetX + boxWidth > window.innerWidth
+          ? e.clientX - boxWidth - offsetX
+          : e.clientX + offsetX;
+
+      const posY =
+        e.clientY + offsetY + boxHeight > window.innerHeight
+          ? e.clientY - boxHeight - offsetY
+          : e.clientY + offsetY;
+
+      infoBox.style.left = `${posX}px`;
+      infoBox.style.top = `${posY}px`;
+    };
+
+    projectItems.forEach((item) => {
+      const defaultRotate = item.getAttribute("data-rotate") || "0deg";
+      const defaultZ = item.getAttribute("data-z") || "10";
+
+      item.addEventListener("mouseenter", (e) => {
+        item.style.transform = "rotate(0deg) scale(1.12)";
+        item.style.zIndex = "50";
+
+        const title = item.getAttribute("data-title") || "UNTITLED PROJECT";
+        const desc = item.getAttribute("data-desc") || "";
+        const url = item.getAttribute("data-url");
+
+        infoTitle.textContent = title;
+        infoDesc.textContent = desc;
+        infoAction.textContent = url && url.trim() !== "" ? "[VISIT]" : "[OFFLINE]";
+        infoAction.style.color = url && url.trim() !== "" ? "#4ade80" : "#f87171";
+        infoBox.style.borderColor = url && url.trim() !== "" ? "#22d3ee" : "#ef4444";
+
+        infoBox.style.visibility = "visible";
+        infoBox.style.opacity = "1";
+        moveTooltip(e);
+      });
+
+      item.addEventListener("mousemove", moveTooltip);
+
+      item.addEventListener("mouseleave", () => {
+        item.style.transform = `rotate(${defaultRotate}) scale(1)`;
+        item.style.zIndex = defaultZ;
+
+        infoBox.style.opacity = "0";
+        infoBox.style.visibility = "hidden";
+      });
+
+      item.addEventListener("click", () => {
+        const url = item.getAttribute("data-url");
+
+        if (url && url.trim() !== "") {
+          window.open(url, "_blank", "noopener,noreferrer");
+        } else if (unavailableToast) {
+          clearTimeout(toastTimeout);
+          unavailableToast.style.opacity = "1";
+          unavailableToast.style.transform = "translate(-50%, -50%) scale(1)";
+
+          toastTimeout = setTimeout(() => {
+            unavailableToast.style.opacity = "0";
+            unavailableToast.style.transform = "translate(-50%, -50%) scale(0.9)";
+          }, 2000);
+        }
+      });
+    });
+  })();
+
+
   //Reza Is real spiderman
   (() => {
     const box = document.getElementById("spideyRevealBox");
