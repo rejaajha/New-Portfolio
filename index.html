@@ -99,10 +99,10 @@
               class="block rotate-3 transition duration-300 ease-in-out hover:rotate-12"
             >
               <img
-                src="./src/asset/Linkedin card.png"
+                src="./src/asset/Profile Linkedin2.png"
                 alt="LinkedIn Reza Khoirul Azzam"
                 draggable="false"
-                class="w-50 pointer-events-none"
+                class="w-70 pointer-events-none"
               />
             </a>
           </div>
@@ -298,11 +298,11 @@
         </div>
       </section>
 
-      <!-- PROJECTS & TOOLS-->
+      <!-- PROJECTS & TOOLS -->
       <section
-        class="page-section sticky mt-20 top-0 z-30 flex justify-between gap-20 p-10 bg-blue"
+        class="page-section sticky mt-20 top-0 z-30 flex justify-between gap-20 p-10 bg-blue relative overflow-x-clip"
       >
-        <!-- KIRI: TOOLS -->
+        <!-- KIRI: TOOLS (TIDAK DISENTUH) -->
         <div class="min-h-screen pr-10 border-r-4 border-white">
           <div class="flex flex-col mb-10">
             <h1 class="text-4xl font-press2P mb-2 text-white">TOOLS</h1>
@@ -317,33 +317,579 @@
           <!-- GAMBAR TOOLS -->
           <div class="flex flex-col justify-center items-center">
             <div class="flex gap-5 mb-5">
-              <img src="./src/asset/T.HTML.png" alt="" class="w-40 animate-berenang berenang-1" />
-              <img src="./src/asset/T.CSS.png" alt="" class="w-40 animate-berenang berenang-2" />
+              <img
+                src="./src/asset/T.HTML.png"
+                alt=""
+                class="w-40 animate-berenang berenang-1"
+              />
+              <img
+                src="./src/asset/T.CSS.png"
+                alt=""
+                class="w-40 animate-berenang berenang-2"
+              />
             </div>
 
             <div class="flex gap-5 mb-5">
-              <img src="./src/asset/T.JS.png" alt="" class="w-40 animate-berenang berenang-3" />
-              <img src="./src/asset/T.TAILWIND.png" alt="" class="w-40 animate-berenang berenang-4" />
+              <img
+                src="./src/asset/T.JS.png"
+                alt=""
+                class="w-40 animate-berenang berenang-3"
+              />
+              <img
+                src="./src/asset/T.TAILWIND.png"
+                alt=""
+                class="w-40 animate-berenang berenang-4"
+              />
             </div>
 
             <div>
-              <img src="./src/asset/T.FIGMA.png" alt="" class="w-40 animate-berenang berenang-5" />
+              <img
+                src="./src/asset/T.FIGMA.png"
+                alt=""
+                class="w-40 animate-berenang berenang-5"
+              />
             </div>
           </div>
         </div>
 
         <!-- KANAN: SELECTED PROJECT -->
-        <div>
-          <h1 class="text-4xl font-press2P mb-2 text-white">
-            SELECTED PROJECT
-          </h1>
+        <div class="flex-1 flex flex-col justify-between pr-20">
+          <div>
+            <h1 class="text-4xl font-press2P mb-4 text-white">
+              SELECTED PROJECT
+            </h1>
+            <p class="text-xl text-white/90">
+              Pull the handle on the right side to open the project drawer.
+            </p>
+          </div>
+
+          <!-- Visual Petunjuk di Tengah -->
+          <div
+            class="my-auto flex flex-col items-center justify-center border-4 border-dashed border-white/40 rounded-xl p-10 text-center"
+          >
+            <span
+              class="font-press2P text-white/80 text-base mb-3 animate-pulse"
+            >
+              &lt;&lt; PULL DRAWER ON THE RIGHT
+            </span>
+            <p class="text-white/70 text-base">
+              Click or drag the metal handle to the left to reveal the
+              collection.
+            </p>
+          </div>
+        </div>
+
+        <!-- LACI KABINET LOGAM -->
+        <div
+          id="projectDrawer"
+          style="
+            top: 45%;
+            height: 620px;
+            width: 760px;
+            max-width: 85vw;
+            transform: translate(calc(100% - 76px), -50%);
+          "
+          class="absolute right-0 z-40 transition-transform duration-300 ease-out flex items-center select-none"
+        >
+          <!-- AREA GAGANG & BIBIR DEPAN LACI -->
+          <div
+            id="drawerHandle"
+            class="relative h-full w-[76px] flex items-center justify-end cursor-grab active:cursor-grabbing z-20 group"
+          >
+            <!-- Gagang U Metalik -->
+            <div
+              class="relative w-10 h-48 flex flex-col justify-between items-end mr-[-2px] z-10"
+            >
+              <!-- Baut Atas -->
+              <div
+                style="background-color: #9bc4d1; border-color: #4a6f7c"
+                class="w-5 h-7 border-2 rounded-l-md flex items-center justify-center shadow-md"
+              >
+                <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+              </div>
+
+              <!-- Batang Besi U -->
+              <div
+                class="absolute right-2 top-3 bottom-3 w-8 border-y-[8px] border-l-[8px] border-slate-200 rounded-l-2xl shadow-[-5px_5px_10px_rgba(0,0,0,0.45)] group-hover:border-yellow-300 transition-colors"
+              ></div>
+
+              <!-- Baut Bawah -->
+              <div
+                style="background-color: #9bc4d1; border-color: #4a6f7c"
+                class="w-5 h-7 border-2 rounded-l-md flex items-center justify-center shadow-md"
+              >
+                <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+              </div>
+            </div>
+
+            <!-- Bibir Depan Laci -->
+            <div
+              style="
+                background: linear-gradient(
+                  to right,
+                  #87b5c4,
+                  #a6cfdc,
+                  #7ba8b7
+                );
+                border-color: #4a6f7c;
+              "
+              class="h-full w-[38px] border-y-4 border-l-4 rounded-l-md shadow-[-8px_0_20px_rgba(0,0,0,0.4)] flex items-center justify-center"
+            >
+              <span
+                class="font-press2P text-[9px] text-slate-900 font-bold tracking-widest uppercase"
+                style="writing-mode: vertical-rl; transform: rotate(180deg)"
+              >
+                &lt; PULL DRAWER
+              </span>
+            </div>
+          </div>
+
+          <!-- BAK / RONGGA DALAM LACI (Dipaksa warna biru gelap solid agar tidak bolong) -->
+          <div
+            style="
+              background-color: #0b192c;
+              border-top: 14px solid #9ec7d4;
+              border-bottom: 14px solid #9ec7d4;
+              border-right: 14px solid #9ec7d4;
+              box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9);
+            "
+            class="relative flex-1 h-full p-6 flex flex-col overflow-hidden"
+          >
+            <!-- Header Sangat Minimal -->
+            <div class="flex justify-between items-center z-40 mb-2">
+              <span
+                class="font-press2P text-[9px] text-white/40 tracking-widest"
+              >
+                // ARCHIVE_DRAWER
+              </span>
+              <button
+                id="closeDrawerBtn"
+                type="button"
+                class="font-press2P text-[9px] text-white/50 hover:text-white px-2 py-1 transition-colors cursor-pointer"
+              >
+                [X] CLOSE
+              </button>
+            </div>
+
+            <!-- AREA TUMPUKAN GAMBAR BERANTAKAN (Menggunakan position: absolute agar bertumpuk acak) -->
+            <div class="relative flex-1 w-full h-full overflow-hidden">
+              <!-- GAMBAR 1: GREENERS INDONESIA (Agak miring ke kiri atas) -->
+              <img
+                src="./src/asset/Greeners.png"
+                alt="Greeners Indonesia PS5 Cover"
+                style="
+                  width: 175px;
+                  max-width: 175px;
+                  height: auto;
+                  top: 8%;
+                  left: 10%;
+                  transform: rotate(-11deg);
+                "
+                onmouseover="
+                  this.style.transform = 'rotate(0deg) scale(1.12)';
+                  this.style.zIndex = '50';
+                "
+                onmouseout="
+                  this.style.transform = 'rotate(-11deg) scale(1)';
+                  this.style.zIndex = '10';
+                "
+                class="absolute z-10 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+              />
+
+              <!-- GAMBAR 2: (Menumpuk miring ke kanan di sebelah/atasnya) -->
+              <img
+                src="./src/asset/Greeners.png"
+                alt="Project 2"
+                style="
+                  width: 175px;
+                  max-width: 175px;
+                  height: auto;
+                  top: 14%;
+                  left: 42%;
+                  transform: rotate(9deg);
+                "
+                onmouseover="
+                  this.style.transform = 'rotate(0deg) scale(1.12)';
+                  this.style.zIndex = '50';
+                "
+                onmouseout="
+                  this.style.transform = 'rotate(9deg) scale(1)';
+                  this.style.zIndex = '20';
+                "
+                class="absolute z-20 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+              />
+
+              <!-- GAMBAR 3: (Tergeletak miring ke kiri di bagian bawah) -->
+              <img
+                src="./src/asset/Greeners.png"
+                alt="Project 3"
+                style="
+                  width: 175px;
+                  max-width: 175px;
+                  height: auto;
+                  bottom: 8%;
+                  left: 22%;
+                  transform: rotate(-5deg);
+                "
+                onmouseover="
+                  this.style.transform = 'rotate(0deg) scale(1.12)';
+                  this.style.zIndex = '50';
+                "
+                onmouseout="
+                  this.style.transform = 'rotate(-5deg) scale(1)';
+                  this.style.zIndex = '15';
+                "
+                class="absolute z-15 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+              />
+
+              <!-- GAMBAR 4: (Miring tajam di pojok kanan bawah) -->
+              <img
+                src="./src/asset/Greeners.png"
+                alt="Project 4"
+                style="
+                  width: 175px;
+                  max-width: 175px;
+                  height: auto;
+                  bottom: 10%;
+                  right: 10%;
+                  transform: rotate(14deg);
+                "
+                onmouseover="
+                  this.style.transform = 'rotate(0deg) scale(1.12)';
+                  this.style.zIndex = '50';
+                "
+                onmouseout="
+                  this.style.transform = 'rotate(14deg) scale(1)';
+                  this.style.zIndex = '25';
+                "
+                class="absolute z-25 rounded-md shadow-[0_18px_35px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- CONTACT -->
       <section class="page-section sticky top-0 z-40 bg-black">
-        <div class="min-h-screen p-10">
-          <h1 class="text-white">CONTACT</h1>
+        <div
+          style="
+            background-image: radial-gradient(
+              rgba(255, 255, 255, 0.08) 1px,
+              transparent 1px
+            );
+            background-size: 24px 24px;
+          "
+          class="min-h-screen p-6 md:p-10 flex flex-col justify-between relative overflow-hidden"
+        >
+          <!-- HEADER ATAS -->
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between gap-4 z-10 border-b-2 border-white/20 pb-5"
+          >
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  style="background-color: #dc2626"
+                  class="font-press2P text-[9px] text-white px-2 py-1 tracking-widest"
+                >
+                  STAGE 04
+                </span>
+                <span
+                  class="font-press2P text-[10px] text-white/60 tracking-widest"
+                >
+                  // MULTIPLAYER_LOBBY
+                </span>
+              </div>
+              <h1
+                class="text-4xl md:text-5xl font-press2P text-white tracking-tight"
+              >
+                CONTACT
+              </h1>
+            </div>
+
+            <p
+              class="text-white/70 text-sm md:text-base max-w-md leading-relaxed"
+            >
+              Ready to start a new quest? Hover over the portrait to reveal the
+              mask, or pick a channel to connect.
+            </p>
+          </div>
+
+          <!-- AREA UTAMA: KIRI (EMAIL & STATUS) - TENGAH (SPIDER-MAN) - KANAN (SOCIAL CHANNELS) -->
+          <div
+            class="flex-1 grid grid-cols-1 lg:grid-cols-3 items-center gap-8 my-auto pt-6 z-10"
+          >
+            <!-- KOLOM KIRI: DIRECT MESSAGE / EMAIL -->
+            <div class="flex flex-col gap-5 order-2 lg:order-1">
+              <!-- Kartu Utama Email -->
+              <div
+                style="
+                  background-color: #0d1117;
+                  border: 2px solid rgba(255, 255, 255, 0.25);
+                  box-shadow: 6px 6px 0px rgba(220, 38, 38, 0.45);
+                "
+                class="p-6 relative"
+              >
+                <!-- Aksen Sudut HUD -->
+                <span
+                  style="
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    width: 10px;
+                    height: 10px;
+                    border-top: 3px solid #ef4444;
+                    border-left: 3px solid #ef4444;
+                  "
+                ></span>
+                <span
+                  style="
+                    position: absolute;
+                    bottom: -2px;
+                    right: -2px;
+                    width: 10px;
+                    height: 10px;
+                    border-bottom: 3px solid #ef4444;
+                    border-right: 3px solid #ef4444;
+                  "
+                ></span>
+
+                <span class="font-press2P text-[10px] text-red-400 block mb-3">
+                  &gt; DIRECT_TRANSMISSION
+                </span>
+                <h2
+                  class="font-press2P text-base md:text-lg text-white mb-3 leading-relaxed"
+                >
+                  LET'S BUILD SOMETHING EPIC
+                </h2>
+                <p class="text-white/70 text-sm mb-6 leading-relaxed">
+                  Open for freelance projects, creative web collaborations, or
+                  just talking about games &amp; UI design.
+                </p>
+
+                <!-- Tombol Email -->
+                <a
+                  href="mailto:emailkamu@gmail.com"
+                  style="
+                    background-color: #dc2626;
+                    box-shadow: 4px 4px 0px #ffffff;
+                  "
+                  class="block w-full text-center font-press2P text-xs text-white py-4 px-5 border-2 border-white hover:bg-red-700 active:translate-x-1 active:translate-y-1 transition-all"
+                >
+                  [A] SEND EMAIL
+                </a>
+              </div>
+
+              <!-- Status & Lokasi Player -->
+              <div
+                style="
+                  background-color: #0d1117;
+                  border: 2px dashed rgba(255, 255, 255, 0.25);
+                "
+                class="p-4 flex flex-col gap-2"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="font-press2P text-[9px] text-white/50"
+                    >PLAYER_STATUS</span
+                  >
+                  <span
+                    class="font-press2P text-[9px] text-green-400 flex items-center gap-2"
+                  >
+                    <span
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background-color: #4ade80;
+                        border-radius: 9999px;
+                        display: inline-block;
+                      "
+                      class="animate-ping"
+                    ></span>
+                    ONLINE / OPEN
+                  </span>
+                </div>
+                <div
+                  class="flex items-center justify-between border-t border-white/10 pt-2"
+                >
+                  <span class="font-press2P text-[9px] text-white/50"
+                    >SERVER</span
+                  >
+                  <span class="font-press2P text-[9px] text-white/80"
+                    >ID // WEST JAVA</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- KOLOM TENGAH: FOTO INTERAKTIF (TIDAK DISENTUH) -->
+            <div
+              class="flex flex-col items-center justify-end order-1 lg:order-2 h-full"
+            >
+              <div
+                id="spideyRevealBox"
+                style="
+                  position: relative;
+                  display: inline-block;
+                  max-width: 90vw;
+                  overflow: hidden;
+                  cursor: crosshair;
+                  user-select: none;
+                  border-radius: 12px;
+                  background-color: #000000;
+                "
+              >
+                <!-- LAPISAN 1: Mukagw.png (Akan otomatis meredup/gelap saat di-hover agar kuping tenggelam ke hitam) -->
+                <img
+                  id="myFaceLayer"
+                  src="./src/asset/AKU.png"
+                  alt="My Portrait"
+                  style="
+                    display: block;
+                    width: auto;
+                    max-width: 100%;
+                    max-height: 68vh;
+                    height: auto;
+                    pointer-events: none;
+                    transition:
+                      filter 0.3s ease,
+                      opacity 0.3s ease;
+                  "
+                />
+
+                <!-- LAPISAN 2: Gwjuga.png -->
+                <img
+                  id="spideyMaskLayer"
+                  src="./src/asset/Gwjuga.png"
+                  alt="Spider-Man Mask"
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.25s ease;
+                    transform: scale(0.95) translate(6px, 8px);
+                    filter: contrast(1.15) brightness(0.95);
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- KOLOM KANAN: SOCIAL CHANNELS -->
+            <div class="flex flex-col gap-4 order-3">
+              <div class="flex items-center justify-between mb-1">
+                <span
+                  class="font-press2P text-[10px] text-white/60 tracking-widest"
+                >
+                  // SELECT_CHANNEL
+                </span>
+                <span class="font-press2P text-[9px] text-white/40">[03]</span>
+              </div>
+
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/usernamekamu"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                  background-color: #0d1117;
+                  border: 2px solid rgba(255, 255, 255, 0.2);
+                "
+                class="group p-4 flex items-center justify-between hover:border-pink-500 transition-all hover:-translate-x-1"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="font-press2P text-[10px] text-pink-500">01</span>
+                  <div>
+                    <span
+                      class="font-press2P text-xs text-white group-hover:text-pink-400 transition-colors block mb-1"
+                    >
+                      INSTAGRAM
+                    </span>
+                    <span class="text-white/60 text-xs">@usernamekamu</span>
+                  </div>
+                </div>
+                <span
+                  class="font-press2P text-xs text-white/40 group-hover:text-pink-400 transition-colors"
+                >
+                  &gt;&gt;
+                </span>
+              </a>
+
+              <!-- GitHub -->
+              <a
+                href="https://github.com/usernamekamu"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                  background-color: #0d1117;
+                  border: 2px solid rgba(255, 255, 255, 0.2);
+                "
+                class="group p-4 flex items-center justify-between hover:border-cyan-400 transition-all hover:-translate-x-1"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="font-press2P text-[10px] text-cyan-400">02</span>
+                  <div>
+                    <span
+                      class="font-press2P text-xs text-white group-hover:text-cyan-400 transition-colors block mb-1"
+                    >
+                      GITHUB
+                    </span>
+                    <span class="text-white/60 text-xs"
+                      >github.com/usernamekamu</span
+                    >
+                  </div>
+                </div>
+                <span
+                  class="font-press2P text-xs text-white/40 group-hover:text-cyan-400 transition-colors"
+                >
+                  &gt;&gt;
+                </span>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://linkedin.com/in/usernamekamu"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                  background-color: #0d1117;
+                  border: 2px solid rgba(255, 255, 255, 0.2);
+                "
+                class="group p-4 flex items-center justify-between hover:border-blue-400 transition-all hover:-translate-x-1"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="font-press2P text-[10px] text-blue-400">03</span>
+                  <div>
+                    <span
+                      class="font-press2P text-xs text-white group-hover:text-blue-400 transition-colors block mb-1"
+                    >
+                      LINKEDIN
+                    </span>
+                    <span class="text-white/60 text-xs">in/usernamekamu</span>
+                  </div>
+                </div>
+                <span
+                  class="font-press2P text-xs text-white/40 group-hover:text-blue-400 transition-colors"
+                >
+                  &gt;&gt;
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- FOOTER BAWAH -->
+          <div
+            class="flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-white/15 pt-4 mt-6 z-10"
+          >
+            <span class="font-press2P text-[9px] text-white/40">
+              © 2026 REZA // ALL RIGHTS RESERVED
+            </span>
+            <span class="font-press2P text-[9px] text-white/40">
+              PRESS [START] TO CONTINUE
+            </span>
+          </div>
         </div>
       </section>
     </main>
